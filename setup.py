@@ -13,11 +13,10 @@ setup(
     include_package_data=True,
     description='Simple plugin with django-time-wizard relation',
     long_description=open('README.rst').read(),
-    url='https://github.com/wfehr/djangocms-time-wizard',
-    download_url='https://github.com/wfehr/djangocms-time-wizard/'
+    url='https://github.com/puzzleYOU/djangocms-time-wizard',
+    download_url='https://github.com/puzzleYOU/djangocms-time-wizard/'
                  'tarball/master',
-    author='Wolfgang Fehr',
-    author_email='dev@wfehr.de',
+    author='puzzleYOU GmbH',
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
