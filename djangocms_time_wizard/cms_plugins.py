@@ -4,7 +4,10 @@ from django.utils.translation import gettext_lazy as _
 from polymorphic.admin import PolymorphicInlineSupportMixin
 from time_wizard.admin import PeriodModelInline, TimeWizardModelAdmin
 
-from djangocms_time_wizard.conf import DJANGOCMS_TIME_WIZARD_WRAPPER
+from djangocms_time_wizard.conf import (
+    DJANGOCMS_TIME_WIZARD_COOKIE_NAME,
+    DJANGOCMS_TIME_WIZARD_WRAPPER,
+)
 from djangocms_time_wizard.models import TimeWizardInlineModel, TimeWizardModel
 
 
@@ -16,7 +19,21 @@ class TimeWizardPluginBase(CMSPluginBase):
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
         context['show_wrapper'] = DJANGOCMS_TIME_WIZARD_WRAPPER
+        context[
+            'show_inactive_content'
+        ] = self._show_inactive_content_from_cookie(context)
         return context
+
+    def _show_inactive_content_from_cookie(self, context):
+        cookie_value = context["request"].COOKIES.get(
+            DJANGOCMS_TIME_WIZARD_COOKIE_NAME,
+            "show-inactive-content:true",
+        )
+        for item in cookie_value.split("::"):
+            key, val = item.split(":")
+            if key == "show-inactive-content":
+                return val == "true"
+        return True
 
 
 class TimeWizardPlugin(TimeWizardPluginBase):
