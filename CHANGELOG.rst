@@ -2,6 +2,11 @@
 Changelog
 =========
 
+v2.5.0 (2025-12-10)
+===================
+
+- added cookie-settings for editing mode -> show/hide inactive content
+
 v2.4.1 (2025-07-29)
 ===================
 
