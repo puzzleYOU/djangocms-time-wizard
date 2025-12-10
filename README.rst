@@ -40,11 +40,11 @@ Showing/Hiding content in editing mode
 ======================================
 
 If you want content managers to be able to show/hide inactive time-wizard
-content, you can do this by adding the following:
+content, you can do this by adding the following::
 
     path("admin/", include("djangocms_time_wizard.urls")),  # urls.py
 
-Link to the settings view, for example in your toolbar:
+Link to the settings view, for example in your toolbar::
 
     self.my_menu.add_link_menu(
         "Time Wizard Admin Settings",

@@ -2,7 +2,12 @@
 Changelog
 =========
 
-v2.5.0 (2025-12-10)
+v2.5.1 (2025-12-10)
+===================
+
+- fixed README
+
+v2.5.0 (----------)
 ===================
 
 - added cookie-settings for editing mode -> show/hide inactive content
