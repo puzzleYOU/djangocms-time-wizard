@@ -1,0 +1,20 @@
+{% extends CMS_TEMPLATE %}
+{% load sekizai_tags static %}
+{% block template_content %}
+{% block content %}
+<h2>Time Wizard settings (for cms editing session)</h2>
+<form id="djangocms-time-wizard-cookie-settings" method="get" action="{{ request.META.HTTP_REFERER }}" data-cookie-name="{{ cookie_name }}">
+  {% for id in available_ids %}
+  <label>
+    <input type="checkbox" value="{{ id }}"{% if id in checked %} checked="checked"{% endif %}>
+    <span>{{ id }}</span>
+  </label>
+  <br />
+  {% endfor %}
+  <button id="save" type="submit" class="button hollow">Save</button>
+</form>
+{% addtoblock "js" %}
+<script type="text/javascript" src="{% static "djangocms_time_wizard/js/admin_cookie_settings.js" %}"></script>
+{% endaddtoblock %}
+{% endblock %}
+{% endblock %}
